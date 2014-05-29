@@ -1,6 +1,6 @@
 # grunt-sassmerge
 
-> Merge SASS variables.
+> Merge SASS variables from multiple files into one file.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -18,6 +18,8 @@ grunt.loadNpmTasks('grunt-sassmerge');
 ```
 
 ## The "sassmerge" task
+
+_Run this task with the `grunt sassmerge` command._
 
 ### Overview
 In your project's Gruntfile, add a section named `sassmerge` to the data object passed into `grunt.initConfig()`.
@@ -37,46 +39,16 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+_(Nothing yet)_
 
 ### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
 
 ```js
 grunt.initConfig({
   sassmerge: {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  sassmerge: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/dest.scss': ['src/file1.scss', 'src/file2.scss'],
     },
   },
 });
