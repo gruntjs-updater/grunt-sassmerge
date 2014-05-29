@@ -51,7 +51,7 @@ module.exports = function(grunt) {
             }
 
             if (newMatches.length) {
-                dest += '\n// Merge SASS variables BEGIN (' + date.toISOString() + ')\n';
+                dest += '\n\n// Merge SASS variables BEGIN (' + date.toISOString() + ')\n';
                 dest += newMatches.join('\n');
                 dest += '\n// Merge SASS variables END';
 
