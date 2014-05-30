@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('sassmerge', 'Merge SASS variables.', function() {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
-
+            removeDefault: false
         });
 
         // Iterate over all specified file groups.
@@ -44,9 +44,17 @@ module.exports = function(grunt) {
                 dest = grunt.file.read(f.dest);
             }
 
+            var _match;
+
             while (match = regexp.exec(src)) {
                 if (dest.indexOf(match[1]) === -1) {
-                    newMatches.push(match[0].replace(/\s{2,}/g, ' '));
+                    _match = match[0].replace(/\s{2,}/g, ' ');
+
+                    if (options.removeDefault) {
+                        _match = _match.replace(/\s*(!default)/g, '');
+                    }
+
+                    newMatches.push(_match);
                 }
             }
 
